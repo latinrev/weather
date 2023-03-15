@@ -14,7 +14,7 @@ const mockData = {
   },
 };
 const weatherCodeChart = {
-  0: "Clear Skies",
+  0: "clear skies",
   1: "Clear",
   2: "Partly Cloudy",
   3: "Overcast",

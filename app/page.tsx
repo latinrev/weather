@@ -7,7 +7,7 @@ export default async function Home() {
     <main className="fixed inset-0 flex flex-col items-center justify-center text-center ">
       <div className="text-9xl">{temperature}°</div>
       <div className="text-7xl">{state}</div>
-      <div className="flex gap-5">
+      <div className="flex gap-24">
         <div className="">Min:{min}°</div>
         <div className="">Max: {max}°</div>
       </div>
