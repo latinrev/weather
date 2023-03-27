@@ -23,7 +23,7 @@ function Home({ temperature, min, max, state, image }: Home) {
   return (
     <div
       style={{ backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 100%), url(${image.src.large2x})` }}
-      className="flex flex-col h-screen bg-cover justify-center items-center ">
+      className="flex flex-col h-screen bg-cover justify-center items-center text-white">
       <div className={`flex justify-center items-center flex-col text-center h-full gap-3 p-5  `}>
         <div className="text-sm sm:text-xl opacity-90">
           {new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }).toUpperCase().replace(/,/g, "")}
