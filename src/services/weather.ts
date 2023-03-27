@@ -1,3 +1,5 @@
+import { Location } from "@/interfaces/LocationInterface";
+
 const mockData = {
     data: {
         latitude: 32.812614,
@@ -44,17 +46,24 @@ const weatherCodeChart: codeChart = {
     99: "Thunderstorm with heavy hail",
 };
 
+export function buildURL({ latitude, longitude }: Location) {
+    return `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&forecast_days=1&timezone=America%2FNew_York`;
+
+}
 export async function getTemperatureInformation() {
     const data = await fetch(
         "https://api.open-meteo.com/v1/forecast?latitude=32.78&longitude=-96.81&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&forecast_days=1&timezone=America%2FNew_York"
     );
     const { current_weather, daily } = await data.json()
-    let weatherState = getWeatherState(current_weather.weathercode);
+}
+
+export function buildTemperatureInfo(fetchedData) {
+    let weatherState = getWeatherState(fetchedData.current_weather.weathercode);
     return {
-        temperature: Math.round(current_weather.temperature),
+        temperature: Math.round(fetchedData.current_weather.temperature),
         state: weatherState.toUpperCase(),
-        max: Math.round(daily.temperature_2m_max[0]),
-        min: Math.round(daily.temperature_2m_min[0]),
+        max: Math.round(fetchedData.daily.temperature_2m_max[0]),
+        min: Math.round(fetchedData.daily.temperature_2m_min[0]),
     };
 }
 
