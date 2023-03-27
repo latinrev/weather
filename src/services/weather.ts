@@ -57,7 +57,7 @@ export async function getTemperatureInformation() {
     const { current_weather, daily } = await data.json()
 }
 
-export function buildTemperatureInfo(fetchedData) {
+export function buildTemperatureInfo(fetchedData: any) {
     let weatherState = getWeatherState(fetchedData.current_weather.weathercode);
     return {
         temperature: Math.round(fetchedData.current_weather.temperature),
