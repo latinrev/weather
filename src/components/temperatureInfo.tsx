@@ -14,11 +14,11 @@ export default function TemperatureInfo({ latitude, longitude }: Location) {
   if (isLoading) return <Loading />;
   return (
     <>
-      <div className="temp text-6xl sm:text-[80px] md:text-[100px] ">&nbsp;{data.temperature}°</div>
+      <div className="temp text-6xl sm:text-[80px] md:text-[100px] ">&nbsp;{data!.temperature}°</div>
       <div className="moreInfo flex gap-3 items-end justify-center sm:text-2xl">
-        <span className="min opacity-90 ">MIN:{data.min}°</span>
-        <span className="state text-4xl sm:text-[80px] md:text-[100px] text-[#e5c62c]">{data.state}</span>
-        <span className="max opacity-90">MIN:{data.max}°</span>
+        <span className="min opacity-90 ">MIN:{data!.min}°</span>
+        <span className="state text-4xl sm:text-[80px] md:text-[100px] text-[#e5c62c]">{data!.state}</span>
+        <span className="max opacity-90">MIN:{data!.max}°</span>
       </div>
     </>
   );
